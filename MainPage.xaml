@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProfilePage.MainPage"
+             Title="Profile">
+
+    <ScrollView Margin="-5, -90, -10, -40" 
+                VerticalScrollBarVisibility="Never">
+        <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto"
+              RowSpacing="15"
+              Margin="0, 0, 5, 30"
+              ColumnDefinitions="*,*, *">
+            <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"
+                  Margin="-30, 20, -30, -30"
+                  CornerRadius="80"
+                  IsClippedToBounds="True"
+                  Padding="0">
+                <Image Aspect="AspectFill" Source="profile_picture.png" 
+                      HorizontalOptions="FillAndExpand"
+                      HeightRequest="410"/>
+
+            </Frame>
+            <!-- Floating Buttons-->
+            <Button Grid.Column="0" Grid.Row="1"
+                   Margin="0, -50, 0, 0"
+                    HeightRequest="80"
+                   WidthRequest="80"
+                   CornerRadius="40"
+                   ImageSource="cross"
+                   BackgroundColor="White">
+                <Button.Shadow>
+                    <Shadow
+                       Brush="#bcbcbc"
+                       Offset="5,5"
+                       Opacity="0.6"/>
+                </Button.Shadow>
+            </Button>
+            <!-- Like Button-->
+            <Button Grid.Column="1" Grid.Row="1" 
+                    Margin="0,-50,0,0" 
+                    HeightRequest="110" 
+                    WidthRequest="110" 
+                    CornerRadius="55" 
+                    ImageSource="heart"
+                    BackgroundColor="Pink">
+                <Button.Shadow>
+                    <Shadow Brush="#f8bcd9"
+                            Offset="5,5"
+                            Opacity="0.6"/>
+                </Button.Shadow>
+            </Button>
+            <!-- Rate Button-->
+            <Button Grid.Column="2" Grid.Row="1" 
+                    Margin="0,-50,0,0" 
+                    HeightRequest="80" WidthRequest="80" 
+                    CornerRadius="40" 
+                    ImageSource="star"
+                    BackgroundColor="White">
+                <Button.Shadow>
+                    <Shadow Brush="#bcbcbc"
+                            Offset="5,5"
+                            Opacity="0.6"/>
+                </Button.Shadow>
+            </Button>
+            <!-- End of Floating Buttons-->
+
+            <!--Personal Details-->
+            <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                   Text="John Williams"
+                   FontAttributes="Bold"
+                   Margin="20, 15, 0, 0"
+                   FontSize="26"/>
+
+            <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                   Text="Graphic Designer"
+                   TextColor="#a3a3a3"
+                   FontAttributes="Bold"
+                   Margin="20, 5, 0, 0"
+                   FontSize="22"/>
+
+
+            <Button Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" 
+                    HorizontalOptions="End" 
+                    VerticalOptions="Center" 
+                    HeightRequest="65" 
+                    WidthRequest="65" 
+                    CornerRadius="10" 
+                    ImageSource="edit" 
+                    BackgroundColor="WhiteSmoke"
+                    Margin="0, 0, 20, 0">
+                <Button.Shadow>
+                    <Shadow Brush="#bcbcbc"
+                            Offset="5,5"
+                            Opacity="0.6"/>
+                </Button.Shadow>
+            </Button>
+
+            <!--Bio-->
+            <Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4"
+                   Text="Biography"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   Margin="20, 20, 0, 20"/>
+
+            <Label Grid.Column="2"  Grid.Row="4"
+                   Text="Read more"
+                   TextColor="#c0bebe"
+                   FontSize="15"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="End"
+                   Margin="0, 20, 20, 0"/>
+
+            <Label Grid.Column="0"  
+                   Grid.ColumnSpan="4"
+                   Grid.Row="5"
+                   TextColor="#a3a3a3"
+                   FontSize="15"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Start"
+                   Text="My name is Madeline and I enjoy meet new people and finding ways to help them have an uplifting experience ..."
+                   Margin="20, 0, 20, 0"/>
+
+            <!--Interests-->
+            <Label Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="6"
+                   Text="Interests"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   Margin="20, 20, 0,  0"/>
+
+            <!--List-->
+            <CollectionView Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="3"
+                            HorizontalScrollBarVisibility="Never"
+                            HeightRequest="120"
+                            VerticalOptions="Fill"
+                            ItemsSource="{Binding Profiles}"
+                            Margin="20, 0, 0, 0">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Horizontal" Span="2"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="0, 0, 20, 0">
+                            <Button Text="{Binding Description}" 
+                                    TextColor="Black"
+                                    BackgroundColor="{Binding BgColor}"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ScrollView>
+
+</ContentPage>
