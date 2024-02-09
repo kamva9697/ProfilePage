@@ -7,7 +7,7 @@ A Social Media Page application to demonstrate .NET MAUI comprehension.
 ## Building From Source
 
 ### Depedencies/Prerequisites
-Note, The following software and toolchains have to bee installed:
+Note, The following software and toolchains have to be installed:
 
 	1. Visual Studio 2022 [link](https://visualstudio.microsoft.com/downloads/?cid=learn-navbar-download-cta)
 	2. MAUI Workload [link](https://learn.microsoft.com/en-us/dotnet/maui/get-started/installation?view=net-maui-8.0&tabs=vswin)
