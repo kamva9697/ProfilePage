@@ -1,4 +1,4 @@
-[](https://github.com/kamva9697/ProfilePage/assets/13321065/1c38d4c8-cbf3-4494-8e43-1bd13f5c41d7)
+<img src="https://github.com/kamva9697/ProfilePage/assets/13321065/1c38d4c8-cbf3-4494-8e43-1bd13f5c41d7" alt=Logo height= 800 width= 800>
 # Pic-Me
 
 A Social Media Page application to demonstrate .NET MAUI comprehension.
