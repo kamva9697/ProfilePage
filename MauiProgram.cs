@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using ProfilePage.ViewModels;
+using ProfilePage.Views;
 
 namespace ProfilePage
 {
@@ -15,9 +17,12 @@ namespace ProfilePage
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-#if DEBUG
-    		builder.Logging.AddDebug();
-#endif
+            // Cache Page and ViewModel States
+            builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddSingleton<MainPageViewModel>();
+
+            // Ephemeral Page, has no state.
+            builder.Services.AddTransient<EditPage>();
 
             return builder.Build();
         }

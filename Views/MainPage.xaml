@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:ProfilePage.ViewModels"
+             xmlns:models="clr-namespace:ProfilePage.Models"
+             x:DataType="viewModels:MainPageViewModel"
              x:Class="ProfilePage.MainPage"
              Title="Profile">
 
@@ -66,20 +69,21 @@
 
             <!--Personal Details-->
             <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
-                   Text="John Williams"
+                   Text="{Binding Name}"
                    FontAttributes="Bold"
                    Margin="20, 15, 0, 0"
                    FontSize="26"/>
 
             <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
-                   Text="Graphic Designer"
+                   Text="{Binding JobTitle}"
                    TextColor="#a3a3a3"
                    FontAttributes="Bold"
                    Margin="20, 5, 0, 0"
                    FontSize="22"/>
 
 
-            <Button Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" 
+            <Button Grid.Column="2" Grid.Row="2" Grid.RowSpan="2"   
+                    Pressed="NagivateToEditPage"
                     HorizontalOptions="End" 
                     VerticalOptions="Center" 
                     HeightRequest="65" 
@@ -117,7 +121,7 @@
                    FontSize="15"
                    FontAttributes="Bold"
                    HorizontalTextAlignment="Start"
-                   Text="My name is Madeline and I enjoy meet new people and finding ways to help them have an uplifting experience ..."
+                   Text="{Binding Biography}"
                    Margin="20, 0, 20, 0"/>
 
             <!--Interests-->
@@ -132,13 +136,13 @@
                             HorizontalScrollBarVisibility="Never"
                             HeightRequest="120"
                             VerticalOptions="Fill"
-                            ItemsSource="{Binding Profiles}"
+                            ItemsSource="{Binding Interests}"
                             Margin="20, 0, 0, 0">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Horizontal" Span="2"/>
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
-                    <DataTemplate>
+                    <DataTemplate x:DataType="{x:Type models:Interest }">
                         <StackLayout Padding="0, 0, 20, 0">
                             <Button Text="{Binding Description}" 
                                     TextColor="Black"
