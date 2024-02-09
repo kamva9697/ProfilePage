@@ -1,3 +1,4 @@
+[](https://github.com/kamva9697/ProfilePage/assets/13321065/1c38d4c8-cbf3-4494-8e43-1bd13f5c41d7)
 # Pic-Me
 
 A Social Media Page application to demonstrate .NET MAUI comprehension.
